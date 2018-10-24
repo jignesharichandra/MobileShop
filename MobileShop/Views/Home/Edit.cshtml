@@ -1,0 +1,34 @@
+﻿@model MobileShop.Models.Mobile
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <h4>Mobile</h4>
+    @Html.LabelFor(m => m.slNo)
+    @Html.EditorFor(m => m.slNo)
+
+
+    @Html.LabelFor(m => m.MobileName)
+    @Html.EditorFor(m => m.MobileName)
+
+    @Html.LabelFor(m => m.Price)
+    @Html.EditorFor(m => m.Price)
+
+    @Html.LabelFor(m => m.url)
+    @Html.EditorFor(m => m.url)
+
+    @Html.LabelFor(m => m.Description)
+    @Html.EditorFor(m => m.Description)
+
+    <input type="submit" value="Save Changes" />
+}
+
+@Html.ActionLink("Back to List", "Index")
+
+
+

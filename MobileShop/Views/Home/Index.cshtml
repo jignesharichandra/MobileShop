@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MobileShop.Models.Mobile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Genre : @Html.DropDownList("mMobileName", "All")
+        Title : @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" />
+    </p>
+}
+@Html.ActionLink("Create new Moblie", "Create")
+<table class="table">
+    @*column headings for the table*@
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.slNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.slNo)</td>
+            <td>@Html.DisplayFor(m => item.MobileName)</td>
+            <td>@Html.DisplayFor(m => item.Price)</td>
+            <td><img src="@Html.DisplayFor(m => item.url)" height="250" width="200" /></td>
+            <td>@Html.DisplayFor(m => item.Description)</td>
+            <td>
+                @Html.ActionLink("Edit Record", "Edit", new { id = item.slNo })
+                @Html.ActionLink("Details of  Record", "Details", new { id = item.slNo })
+                @Html.ActionLink("Delete Record", "Delete", new { id = item.slNo })
+            </td>
+        </tr>
+    }
+</table>
